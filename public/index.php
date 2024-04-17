@@ -6,4 +6,8 @@ Front Controller
 
 */
 
-echo __FILE__;
+// appel de dépendances
+require_once "../config.php";
+
+
+
