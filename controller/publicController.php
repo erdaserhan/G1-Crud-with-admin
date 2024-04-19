@@ -20,6 +20,15 @@ if(isset($_GET['connect'])){
     if(isset($_POST['username'],$_POST['userpwd'])){
         // protection du champs qui sera dans la requête
         $username = htmlspecialchars(strip_tags(trim($_POST['username'])),ENT_QUOTES);
+        // protecion pour les espaces vide
+        $userpwd = trim($_POST['userpwd']);
+        // tentative de connexion
+        $connect = connectAdministrator($db,$username,$userpwd);
+        // connexion réussie
+        if($connect===true){
+            header("Location: ./");
+            exit();
+        }
     }
 
     // appel de la vue
