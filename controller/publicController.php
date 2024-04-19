@@ -3,11 +3,27 @@
 Gère le site pour un visiteur non connecté
 */
 
+
+// JSON pour l'API
 if(isset($_GET['json'])){
     $datas = getAllGeoloc($db);
     if(!is_string($datas)){
         echo json_encode($datas);
     }
+    exit();
+}
+
+// Si on essaye de se connecter
+if(isset($_GET['connect'])){
+
+    // si on a envoyé le formulaire
+    if(isset($_POST['username'],$_POST['userpwd'])){
+        // protection du champs qui sera dans la requête
+        $username = htmlspecialchars(strip_tags(trim($_POST['username'])),ENT_QUOTES);
+    }
+
+    // appel de la vue
+    include "../view/public/connect.view.html.php";
     exit();
 }
 
