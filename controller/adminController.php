@@ -9,7 +9,13 @@ if(isset($_GET['disconnect'])){
 }
 
 if(isset($_GET['update'])){
-    getOneGeolocByID($db,$_GET['update']);
+    getOneGeolocByID($db, $_GET['update']);
+    
+    exit();
+}
+
+if(isset($_GET['delete'])){
+    getOneGeolocByID($db, $_GET['delete']);
     
     exit();
 }

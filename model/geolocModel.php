@@ -19,7 +19,7 @@ function getAllGeoloc(PDO $connection) : array|string
 // nous renvoie false en cas d'échec ou le message d'erreur sql
 // ou un tableau associatif en cas de succès
 
-function getOneGeolocByID(PDO $con, int $id)
+function getOneGeolocByID(PDO $con, int $id): string|bool|array
 {
     
     $sql="SELECT * FROM `geoloc` WHERE idgeoloc = ?";   
