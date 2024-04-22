@@ -35,3 +35,14 @@ function getOneGeolocByID(PDO $db, int $getIt) : string|bool|array
         return $e->getMessage();
     }
 }
+
+// on update tous les champs d'un élément de geoloc grâce à son idgeoloc
+// En lui passant TOUTES les variables en paramètre
+// nous renvoie false en cas d'échec ou le message d'erreur sql
+// ou un true en cas de succès
+
+function updateOneGeolocByID(PDO $db, int $idgeoloc) : string|bool
+
+{
+    return false;
+}
