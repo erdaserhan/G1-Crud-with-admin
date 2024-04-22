@@ -8,6 +8,12 @@ if(isset($_GET['disconnect'])){
     exit();
 }
 
+if(isset($_GET['update'])){
+    getOneGeolocByID($db,$_GET['update']);
+    
+    exit();
+}
+
 // si on est sur l'accueil chargement de tous les `geoloc`
 $datas = getAllGeoloc($db); // on obtient un string (Erreur SQL), un tableau vide (Pas de datas), un tableau non vide (On a des datas)
 // appel de la vue de l'accueil de l'admin
