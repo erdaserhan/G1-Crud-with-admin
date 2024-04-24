@@ -55,10 +55,30 @@ function updateOneGeolocByID(PDO $db, int $idgeoloc, string $title, string $desc
             $idgeoloc
         ]);
     
+        // pas de modification par la requête
         if($stmt->rowCount()===0) return false;
 
         return true;
 
+    }catch(Exception $e){
+        return $e->getMessage();
+    }
+}
+
+// pour insérer un nouveau lieu 
+function insertOneGeolocByID(PDO $db, string $title, string $desc, float $lat, float $lon):
+bool|string
+{
+    $sql = "INSERT INTO `geoloc` (`title`,`geolocdesc`,`latitude`, `longitude`) VALUES (?,?,?,?);";
+    $prepare = $db->prepare($sql);
+    try{
+        $prepare->execute([
+            $title, 
+            $desc, 
+            $lat, 
+            $lon
+        ]);
+        return true;
     }catch(Exception $e){
         return $e->getMessage();
     }
