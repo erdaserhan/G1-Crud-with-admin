@@ -83,3 +83,20 @@ bool|string
         return $e->getMessage();
     }
 }
+
+// pour supprimer un lieu
+function deleteOneGeolocByID(PDO $db, int $id): bool|string
+{
+    $sql = "DELETE FROM `geoloc` WHERE `idgeoloc`= :id ";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue("id", $id, PDO::PARAM_INT);
+
+    try{
+        $stmt->execute();
+        if($stmt->rowCount()===0) return false;
+        return true;
+    }catch(Exception $e){
+        return $e->getMessage();
+    }
+
+}
