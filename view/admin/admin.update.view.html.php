@@ -18,6 +18,11 @@
     <div id="content">
         <h3>Article à modifier</h3>
         <?php
+        if(isset($errorUpdate)):
+        ?>
+    <h3 id="alert"><?=$errorUpdate?></h3>
+        <?php
+        endif;
         // datas est une chaîne de caractère : erreur SQL !
         if(is_string($getOneGeoloc)):
         ?>
@@ -26,13 +31,12 @@
         // Pas de `geoloc` trouvée
         elseif($getOneGeoloc===false):
         ?>
-            <h3 id="comment">Ce lieu n'existe plus !</h3>
+            <h3 id="comment">Vous n'avez pas modifié le lieu !</h3>
         <?php
         // Nous avons un lieu
         else:
         ?>
         <form method="POST" name="geo" action="">
-                <input type="hidden" value="<?=$getOneGeoloc['idgeoloc']?>" name="idgeoloc">
                 <input type="text" name="title" value="<?=$getOneGeoloc['title']?>" required><br>
                 <textarea name="geolocdesc"><?=$getOneGeoloc['geolocdesc']?></textarea><br>
                 <input type="number" name="latitude" step="0.000000001" value="<?=$getOneGeoloc['latitude']?>" required>
