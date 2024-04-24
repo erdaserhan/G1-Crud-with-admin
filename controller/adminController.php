@@ -38,6 +38,33 @@ if(isset($_GET['create'])){
     exit();
 }
 
+// si on cliqué sur supprimer un lieu
+if(isset($_GET['delete'])&&ctype_digit($_GET['delete'])){
+
+    // conversion en int
+    $idDelete = (int) $_GET['delete'];
+
+    // si on a validé la suppression
+    if(isset($_GET['ok'])){
+        $delete = deleteOneGeolocByID($db, $idDelete);
+        if($delete===true){
+            header("Location: ./");
+            exit();
+        }elseif($delete===false){
+            $error = "Problème avec cette suppression";
+        }else{
+            $error = $delete;
+        }
+    }
+
+    // chargement de l'article pour la suppression
+    $getOneGeoloc = getOneGeolocByID($db, $idDelete);
+
+    // chargement de la vue
+    include "../view/admin/admin.delete.view.html.php";
+    exit();
+}
+
 // si on a cliqué sur update et que vous n'acceptez que les chiffres 123456789 dans le string $_GET['update']
 if(isset($_GET['update'])&&ctype_digit($_GET['update'])){
 
@@ -70,7 +97,6 @@ if(isset($_GET['update'])&&ctype_digit($_GET['update'])){
             }else{
                 $errorUpdate = $update;
             }
-            $getOneGeoloc = getOneGeolocByID($db, $idUpdate);
     }
         
     
