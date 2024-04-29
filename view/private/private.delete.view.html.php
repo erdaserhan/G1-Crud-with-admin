@@ -36,10 +36,10 @@
     <div class="container my-5 d-flex justify-content-center">
         <div class="card col-5 ">
         <div class="card-body">
-            <h5 class="card-title"><?=$getOneGeoloc['title']?></h5>
+            <h5 class="card-title"><?=$getOneGeoloc['nom']?></h5>
         </div>
         <ul class="list-group list-group-light list-group-small">
-            <li class="list-group-item px-4"><?=$getOneGeoloc['geolocdesc']?></li>
+            <li class="list-group-item px-4"><?=$getOneGeoloc['adresse']?></li>
             <li class="list-group-item px-4"><?=$getOneGeoloc['latitude']?></li>
             <li class="list-group-item px-4"><?=$getOneGeoloc['longitude']?></li>
         </ul>

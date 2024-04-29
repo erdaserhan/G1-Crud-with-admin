@@ -52,7 +52,7 @@
                             data-show-export="true"
                             data-click-to-select="true"
                             data-pagination="true"
-                            data-page-list="[2,4,6,8]"
+                            data-page-list="[5,10,15,20,30]"
                             data-show-columns="true"
                             data-search="true">
                         <thead>
@@ -76,13 +76,13 @@
                         ?>
                             <tr>
                                 <td></td>
-                                <td><?=$data['idgeoloc']?></td>
-                                <td><?=$data['title']?></td>
-                                <td><?=$data['geolocdesc']?></td>
+                                <td><?=$data['id']?></td>
+                                <td><?=$data['nom']?></td>
+                                <td><?=$data['adresse']?></td>
                                 <td><?=$data['latitude']?></td>
                                 <td><?=$data['longitude']?></td>
-                                <td><a href="?update=<?=$data['idgeoloc']?>"><i class="edit bi bi-pen me-4"></i></a></td>
-                                <td><a href="?delete=<?=$data['idgeoloc']?>"><i class="remove bi bi-trash text-danger"></i></a></td>
+                                <td><a href="?update=<?=$data['id']?>"><i class="edit bi bi-pen me-4"></i></a></td>
+                                <td><a href="?delete=<?=$data['id']?>"><i class="remove bi bi-trash text-danger"></i></a></td>
                             </tr>
                             <?php endforeach ?>
                         </tbody>

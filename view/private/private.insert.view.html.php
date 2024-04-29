@@ -17,12 +17,12 @@
         <div class="row mb-4">
             <div class="col">
             <div data-mdb-input-init class="form-outline">
-                <input type="text" id="form3Example1" class="form-control" name="title" placeholder="Titre" required/>
+                <input type="text" id="form3Example1" class="form-control" name="nom" placeholder="Nom" required/>
             </div>
             </div>
             <div class="col">
             <div data-mdb-input-init class="form-outline">
-                <input type="text" name="geolocdesc" id="form3Example2" class="form-control" placeholder="Description"  required/>
+                <input type="text" name="adresse" id="form3Example2" class="form-control" placeholder="Adresse"  required/>
             </div>
             </div>
         </div>

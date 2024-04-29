@@ -1,3 +1,28 @@
+#map { 
+    height: 600px;
+}
+
+.rouge, .rouge a {
+    color:red;
+}
+
+h3, h1 {
+    text-align: center;
+}
+
+.photo {
+    width: 100px;
+}
+
+#resultat {
+    display: flex;
+}
+
+#liste {
+    height: 700px; 
+    overflow-y: scroll;
+}
+
 nav ul li{
     display: inline;
     text-decoration: none;
@@ -10,13 +35,14 @@ nav ul li{
     color: rgb(4, 71, 15);
 }   
 
-#resultats {
+#resultat {
     display: grid;
-    grid-template-columns: repeat(2, 35vw);
+    grid-template-columns: repeat(2, 40vw);
     grid-template-rows: repeat(2, 25vh);
-    gap: 60px;
-    margin-left: 13vw;
+    gap: 10px;
+    margin-left: 11vw;
     margin-bottom: 10vh;
+    margin-top: 10vh;
 }
 
 #map{
@@ -28,6 +54,9 @@ nav ul li{
     text-align: center;
     color: rebeccapurple;
 } 
+
+
+
 
 @media screen and (max-width: 576px) {
     #resultats {
@@ -57,3 +86,4 @@ nav ul li{
     }
 
 }
+

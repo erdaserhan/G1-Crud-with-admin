@@ -9,10 +9,7 @@
                 <a class="nav-link" aria-current="page" href="./">Accueil</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" target="_blank" href="?json">API</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="?connect">Connexion</a>
+                    <button><a class="nav-link" href="?connect">Connexion</a></button>
                 </li>
             </ul>
             </div>

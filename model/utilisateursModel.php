@@ -4,7 +4,7 @@
 function connectAdministrator(PDO $con, string $user, string $password) : bool|string
 {
     // nous allons récupérez les valeurs utiles pour l'utilisateur via $user uniquement
-    $sql="SELECT * FROM `administrator` WHERE username = ?";
+    $sql="SELECT * FROM `utilisateurs` WHERE username = ?";
     // requête préparée car il y a des (une) entrées utilisateurs
     $prepare = $con->prepare($sql);
 
@@ -18,11 +18,11 @@ function connectAdministrator(PDO $con, string $user, string $password) : bool|s
         $result = $prepare->fetch();
 
         // on va vérifiez la validité du mot de passe
-        if(password_verify($password,$result['userpwd'])){
+        if(password_verify($password,$result['passwd'])){
             // on met dans la session les variables récupérées par la requête
             $_SESSION = $result;
             // suppression de la variable inutile de la session
-            unset($_SESSION['userpwd']);
+            unset($_SESSION['passwd']);
             // on est connecté
             return true;
         }
@@ -31,9 +31,7 @@ function connectAdministrator(PDO $con, string $user, string $password) : bool|s
 
     }catch(Exception $e){
         return $e->getMessage();
-    }
-
-    
+    } 
 }
 
 // déconnexion de l'utilisateur

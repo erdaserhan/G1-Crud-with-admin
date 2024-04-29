@@ -6,7 +6,7 @@ Gère le site pour un visiteur non connecté
 
 // JSON pour l'API
 if(isset($_GET['json'])){
-    $datas = getAllGeoloc($db);
+    $datas = getLocations($db);
     if(!is_string($datas)){
         echo json_encode($datas);
     }

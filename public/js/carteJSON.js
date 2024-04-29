@@ -29,7 +29,7 @@ function afficheMarqueurs(liste){
         /* créer un marqueur pour chaque élément de la liste */
         let unMarqueur = L.marker([liste[item].latitude, liste[item].longitude]).addTo(carte);
         /* mettre le nom de l'item dans un popup */
-        unMarqueur.bindPopup(`<h3>${liste[item].title}</h3><p>${liste[item].geolocdesc}</p>`);
+        unMarqueur.bindPopup(`<h3>${liste[item].nom}</h3><p>${liste[item].adresse}</p>`);
 
         /* ajouter ce marqueur au tableau */
         markerTable.push(unMarqueur);
@@ -51,11 +51,11 @@ function afficheListe(liste){
         // créer l'élément de type <li>
         let LI = document.createElement("li");
         // remplir le <li>
-        LI.innerHTML = `${item.title} | ${item.geolocdesc}`;
+        LI.innerHTML = `${item.nom} | ${item.adresse}`;
         // ajouter un eventListener sur le clic
         LI.addEventListener('click', itemClick);
         // ajouter un attribut à cet item LI pour l'identifier
-        LI.setAttribute("id",`${item.idgeoloc}`);
+        LI.setAttribute("id",`${item.id}`);
         // ajouter des attributs à cet item LI pour stocker les coordonnées
         LI.setAttribute("latitude",`${item.latitude}`);
         LI.setAttribute("longitude",`${item.longitude}`);

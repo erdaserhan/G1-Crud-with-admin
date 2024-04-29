@@ -10,6 +10,16 @@
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""/>
 
+     <style>
+        table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin-left: 20vw;
+}
+th, td {
+    padding: 20px;
+}
+     </style>
 
 </head>
 <body>
@@ -35,51 +45,36 @@
         ?>
             <h3>Il y a <?=$nb?> <?=$nb>1 ? "lieux" : "lieu"?></h3>
 
-    <div class="container my-5">
-        <div class="row">
-            <div class="col">
-                <table class="table table-light table-bordered table-hover">
-                <thead>
-                    <tr class="text-center">
-                        <th>title</th>
-                        <th>geolocdesc</th>
-                        <th>latitude</th>
-                        <th>longitude</th>
-                    </tr>
-                </thead>
-                <?php
+            <table>
+                <tr>
+                    <th>Nom</th>
+                    <th>Adresse</th>
+                    <th>Latitude</th>
+                    <th>longitude</th>
+                </tr>
+                    <?php
                 // tant qu'on a des données
-                // var_dump($datas);
                 foreach($datas as $data):
                 ?>
-                <tbody class="text-center">
-                    <td><?=$data['title']?></td>
-                    <td><?=$data['geolocdesc']?></td>
+                <tr>
+                    <td><?=$data['nom']?></td>
+                    <td><?=$data['adresse']?></td>
                     <td><?=$data['latitude']?></td>
                     <td><?=$data['longitude']?></td>
-                </tbody>
+                </tr>
                 <?php endforeach ?>
-                </table>
+              
                 <?php endif ?> 
-            </div>
-        </div>
-    </div>
+            </table>
 
     <!-- Zone d'affichage de la carte -->
 
-    <div id="resultats">
+    <div id="resultat">
         <div id="map"></div>
-        <div id="liste2">
-        <div class="card">
-        <div class="card-header">
-            Adresses
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item" id="liste">An item</li>
-        </ul>
-        </div>
+        <div id="liste"></div>
     </div>
-    </div>
+
+
     </div>
     
     <!-- JS de Leaflet -->

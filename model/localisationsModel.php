@@ -3,7 +3,7 @@
 // création de la fonction qui récupère tous les champs de `geoloc`
 function getAllGeoloc(PDO $connection) : array|string
 {
-    $sql = "SELECT * FROM `geoloc` ;";
+    $sql = "SELECT * FROM `localisations` ;";
     try{
         $query = $connection->query($sql);
         // si il n'y a pas de résultats, fetchAll est un tableau vide
@@ -15,6 +15,16 @@ function getAllGeoloc(PDO $connection) : array|string
     }
 }
 
+
+function getLocations(PDO $db): array 
+{
+    $sql = "SELECT * FROM localisations ORDER BY id ASC";
+    $query = $db->query($sql);
+    $result = $query->fetchAll(PDO::FETCH_ASSOC);
+    $query->closeCursor();
+    return $result;
+}
+
 // on charge tous les champs d'un élément de geoloc grâce à son idgeoloc
 // nous renvoie false en cas d'échec ou le message d'erreur sql
 // ou un tableau associatif en cas de succès
@@ -22,7 +32,7 @@ function getAllGeoloc(PDO $connection) : array|string
 function getOneGeolocByID(PDO $db, int $getIt) : string|bool|array
 
 {
-    $sql = "SELECT * FROM geoloc WHERE idgeoloc = :id";
+    $sql = "SELECT * FROM localisations WHERE id = :id";
     $stmt = $db->prepare($sql);
     $stmt->bindParam("id", $getIt, PDO::PARAM_INT);
     try{
@@ -44,7 +54,7 @@ function getOneGeolocByID(PDO $db, int $getIt) : string|bool|array
 function updateOneGeolocByID(PDO $db, int $idgeoloc, string $title, string $desc, float $lat, float $lon) : string|bool
 
 {
-    $sql = "UPDATE `geoloc` SET `title`= ? , `geolocdesc`= ?, `latitude`= ?, `longitude`= ? WHERE `idgeoloc` = ?";
+    $sql = "UPDATE `localisations` SET `nom`= ? , `adresse`= ?, `latitude`= ?, `longitude`= ? WHERE `id` = ?";
     $stmt = $db->prepare($sql);
     try{
         $stmt->execute([
@@ -69,7 +79,7 @@ function updateOneGeolocByID(PDO $db, int $idgeoloc, string $title, string $desc
 function insertOneGeolocByID(PDO $db, string $title, string $desc, float $lat, float $lon):
 bool|string
 {
-    $sql = "INSERT INTO `geoloc` (`title`,`geolocdesc`,`latitude`, `longitude`) VALUES (?,?,?,?);";
+    $sql = "INSERT INTO `localisations` (`nom`,`adresse`,`latitude`, `longitude`) VALUES (?,?,?,?);";
     $prepare = $db->prepare($sql);
     try{
         $prepare->execute([
@@ -87,7 +97,7 @@ bool|string
 // pour supprimer un lieu
 function deleteOneGeolocByID(PDO $db, int $id): bool|string
 {
-    $sql = "DELETE FROM `geoloc` WHERE `idgeoloc`= :id ";
+    $sql = "DELETE FROM `localisations` WHERE `id`= :id ";
     $stmt = $db->prepare($sql);
     $stmt->bindValue("id", $id, PDO::PARAM_INT);
 

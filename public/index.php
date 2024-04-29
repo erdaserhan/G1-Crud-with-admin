@@ -13,8 +13,8 @@ session_start();
 // configuration
 require_once "../config.php";
 // Modèles
-require_once "../model/administratorModel.php";
-require_once "../model/geolocModel.php";
+require_once "../model/utilisateursModel.php";
+require_once "../model/localisationsModel.php";
 
 // connexion à la DB 
 try{
@@ -25,15 +25,18 @@ try{
     die($e->getMessage());
 }
 
+
 // router
 
-if(isset($_SESSION['username'])){
-    // appel du contrôleur admin
-    require_once "../controller/adminController.php";
+if(isset($_SESSION['json'])){
+    require_once "../controller/publicController.php";
     
-}else{
+}elseif(isset($_SESSION['username'])){
 
-// appel du contrôleur public
+    require_once "../controller/privateController.php";
+    }
+else{
+
 require_once "../controller/publicController.php";
 }
 
