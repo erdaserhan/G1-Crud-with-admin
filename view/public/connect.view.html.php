@@ -8,9 +8,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    <?php
-    require_once "../view/inc/navbar.public.php";
-    ?>
 
     <div id="content">
         <?php if(isset($error)): ?>
@@ -31,7 +28,6 @@
                       <input type="text" id="form3Example1c" name="username" class="form-control" placeholder="Username"/>
                     </div>
                   </div>
-
                   <div class="d-flex flex-row align-items-center mb-4">
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
                       <input type="password" name="userpwd" id="form3Example3c" class="form-control" placeholder="Username"/>
@@ -48,7 +44,7 @@
       </div>
     </div>
   </div>
-    </div>
+  </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

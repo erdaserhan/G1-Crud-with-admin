@@ -2,16 +2,9 @@
     height: 600px;
 }
 
-.rouge, .rouge a {
-    color:red;
-}
-
-h3, h1 {
+h3, h2, h1, p {
     text-align: center;
-}
-
-.photo {
-    width: 100px;
+    color: rebeccapurple;
 }
 
 #resultat {
@@ -19,7 +12,7 @@ h3, h1 {
 }
 
 #liste {
-    height: 700px; 
+    height: 600px; 
     overflow-y: scroll;
 }
 
@@ -28,9 +21,11 @@ nav ul li{
     text-decoration: none;
     padding-right: 1em;
 }
+
 #alert{
     color: red;
 }
+
 #comment{
     color: rgb(4, 71, 15);
 }   
@@ -50,40 +45,33 @@ nav ul li{
     grid-column: 1 / 2;
 }
 
-#content h3{
+#button {
+    display: flex;
+    justify-content: center;
+}
+
+div>button {
+    width: 10em;
     text-align: center;
-    color: rebeccapurple;
-} 
+    border-radius: 5px;
+}
 
+#button a{
+    text-decoration: none;
+    padding: 15px;
+    text-align: center;
+}
 
-
-
-@media screen and (max-width: 576px) {
-    #resultats {
+@media screen and (max-width: 640px) {
+    #resultat {
      display: flex;
      flex-direction: column;
+     margin-right: 3em;
     }
-    #map {
-        height: 40vh;
-        width: 80vw;
-    }
-    #liste2 {
-        width: 80vw;
+    #liste {
+        margin-top: 2em;
     }
 }
 
-@media screen and (min-width: 576px) and (max-width: 780px) {
-    #resultats {
-     display: flex;
-     flex-direction: column;
-    }
-    #map {
-        height: 40vh;
-        width: 80vw;
-    }
-    #liste2 {
-        width: 80vw;
-    }
 
-}
 

@@ -15,22 +15,24 @@ if(isset($_GET['create'])){
     if(isset(
         $_POST['nom'],
         $_POST['adresse'],
+        $_POST['codepostal'],
+        $_POST['ville'],
+        $_POST['nb_velos'],
         $_POST['latitude'],
         $_POST['longitude']
     )){
 
-       $title = htmlspecialchars(strip_tags(trim($_POST['nom'])),ENT_QUOTES);
-       $geolocdesc = htmlspecialchars(trim($_POST['adresse']),ENT_QUOTES);
+       $nom = htmlspecialchars(strip_tags(trim($_POST['nom'])),ENT_QUOTES);
+       $adresse = htmlspecialchars(trim($_POST['adresse']),ENT_QUOTES);
        $latitude = (float) $_POST['latitude'];
        $longitude = (float) $_POST['longitude'];
 
-       $insert = insertOneGeolocByID($db,$title,$geolocdesc,$latitude, $longitude);
+       $insert = insertOneGeolocByID($db, $nom, $adresse, $_POST['codepostal'], $_POST['ville'], $_POST['nb_velos'], $latitude, $longitude);
 
        if($insert === true){
         header("Location: ./");
         exit();
        }
-
     }
 
     // chargement de la vue
@@ -75,18 +77,20 @@ if(isset($_GET['update'])&&ctype_digit($_GET['update'])){
     if(isset(
              $_POST['nom'],
              $_POST['adresse'],
+             $_POST['codepostal'],
+             $_POST['ville'],
              $_POST['latitude'],
              $_POST['longitude']
     )){
 
-            $idgeoloc = $idUpdate;
-            $title = htmlspecialchars(strip_tags(trim($_POST['nom'])),ENT_QUOTES);
-            $geolocdesc = htmlspecialchars(trim($_POST['adresse']),ENT_QUOTES);
+            $id = $idUpdate;
+            $nom = htmlspecialchars(strip_tags(trim($_POST['nom'])),ENT_QUOTES);
+            $adress = htmlspecialchars(trim($_POST['adresse']),ENT_QUOTES);
             $latitude = (float) $_POST['latitude'];
             $longitude = (float) $_POST['longitude'];
 
             // fonction qui update la mise à jour
-            $update = updateOneGeolocByID($db,$idgeoloc,$title,$geolocdesc,$latitude,   $longitude);
+            $update = updateOneGeolocByID($db, $id, $nom, $adress, $_POST['codepostal'], $_POST['ville'],  $latitude, $longitude);
             //var_dump($update);
             // update ok
             if($update===true){

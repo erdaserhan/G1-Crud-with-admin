@@ -40,6 +40,8 @@
         </div>
         <ul class="list-group list-group-light list-group-small">
             <li class="list-group-item px-4"><?=$getOneGeoloc['adresse']?></li>
+            <li class="list-group-item px-4"><?=$getOneGeoloc['codepostal']?></li>
+            <li class="list-group-item px-4"><?=$getOneGeoloc['ville']?></li>
             <li class="list-group-item px-4"><?=$getOneGeoloc['latitude']?></li>
             <li class="list-group-item px-4"><?=$getOneGeoloc['longitude']?></li>
         </ul>

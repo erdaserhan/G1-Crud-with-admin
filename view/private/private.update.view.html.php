@@ -6,6 +6,7 @@
     <title>Update d'un article</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 <body>
     <?php
@@ -28,27 +29,36 @@
         ?>
             <h3 id="comment">Vous n'avez pas modifié le lieu !</h3>
         <?php
-        // Nous avons un lieu
         else:
         ?>
-
-
-
-
 
 <form method="POST" >
         <div class="container">
         <div class="row mb-4">
             <div class="col">
             <div data-mdb-input-init class="form-outline">
-                <label class="form-label" for="form3Example1">Title</label>
+                <label class="form-label" for="form3Example1">Nom</label>
                 <input type="text" id="form3Example1" class="form-control" name="nom" value="<?=$getOneGeoloc['nom']?>"/>
             </div>
             </div>
             <div class="col">
             <div data-mdb-input-init class="form-outline">
-                <label class="form-label" for="form3Example2">Description</label>
+                <label class="form-label" for="form3Example2">Adresse</label>
                 <input type="text" name="adresse" id="form3Example2" class="form-control" value="<?=$getOneGeoloc['adresse']?>" />
+            </div>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col">
+            <div data-mdb-input-init class="form-outline">
+                <label class="form-label" for="form3Example1">Code Postal</label>
+                <input type="number" id="form3Example1" class="form-control" name="codepostal" value="<?=$getOneGeoloc['codepostal']?>"/>
+            </div>
+            </div>
+            <div class="col">
+            <div data-mdb-input-init class="form-outline">
+                <label class="form-label" for="form3Example2">Ville</label>
+                <input type="text" name="ville" id="form3Example2" class="form-control" value="<?=$getOneGeoloc['ville']?>" />
             </div>
             </div>
         </div>
@@ -63,9 +73,7 @@
         <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4">Update</button>
     </div>
     </form>
-
-    
-        <?php endif ?>   
+    <?php endif ?>   
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

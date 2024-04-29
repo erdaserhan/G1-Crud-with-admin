@@ -28,7 +28,7 @@ try{
 
 // router
 
-if(isset($_SESSION['json'])){
+if(isset($_GET['json'])){
     require_once "../controller/publicController.php";
     
 }elseif(isset($_SESSION['username'])){
@@ -36,8 +36,7 @@ if(isset($_SESSION['json'])){
     require_once "../controller/privateController.php";
     }
 else{
-
-require_once "../controller/publicController.php";
+    require_once "../controller/publicController.php";
 }
 
 $db = null;

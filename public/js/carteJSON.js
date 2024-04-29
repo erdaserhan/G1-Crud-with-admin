@@ -8,7 +8,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(carte);
 
 /* Récupération des données */
-fetch("carteJSON.php")
+fetch("?json")
     .then(function(response){
         response.json().then(function(data){
             console.log(data);
@@ -29,7 +29,7 @@ function afficheMarqueurs(liste){
         /* créer un marqueur pour chaque élément de la liste */
         let unMarqueur = L.marker([liste[item].latitude, liste[item].longitude]).addTo(carte);
         /* mettre le nom de l'item dans un popup */
-        unMarqueur.bindPopup(`<h3>${liste[item].nom}</h3><p>${liste[item].adresse}</p>`);
+        unMarqueur.bindPopup(`<h3>${liste[item].nom}</h3><p>${liste[item].adresse}</p><p>${liste[item].codepostal}</p><p>${liste[item].ville}</p><p>${liste[item].nb_velos}</p>`);
 
         /* ajouter ce marqueur au tableau */
         markerTable.push(unMarqueur);
@@ -51,7 +51,7 @@ function afficheListe(liste){
         // créer l'élément de type <li>
         let LI = document.createElement("li");
         // remplir le <li>
-        LI.innerHTML = `${item.nom} | ${item.adresse}`;
+        LI.innerHTML = `Adresse : ${item.adresse} | ${item.codepostal} | ${item.ville} | Nombre de vélos : ${item.nb_velos}`;
         // ajouter un eventListener sur le clic
         LI.addEventListener('click', itemClick);
         // ajouter un attribut à cet item LI pour l'identifier
