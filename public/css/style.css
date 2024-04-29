@@ -9,3 +9,51 @@ nav ul li{
 #comment{
     color: rgb(4, 71, 15);
 }   
+
+#resultats {
+    display: grid;
+    grid-template-columns: repeat(2, 35vw);
+    grid-template-rows: repeat(2, 25vh);
+    gap: 60px;
+    margin-left: 13vw;
+    margin-bottom: 10vh;
+}
+
+#map{
+    grid-row: 1 / 3;
+    grid-column: 1 / 2;
+}
+
+#content h3{
+    text-align: center;
+    color: rebeccapurple;
+} 
+
+@media screen and (max-width: 576px) {
+    #resultats {
+     display: flex;
+     flex-direction: column;
+    }
+    #map {
+        height: 40vh;
+        width: 80vw;
+    }
+    #liste2 {
+        width: 80vw;
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 780px) {
+    #resultats {
+     display: flex;
+     flex-direction: column;
+    }
+    #map {
+        height: 40vh;
+        width: 80vw;
+    }
+    #liste2 {
+        width: 80vw;
+    }
+
+}
